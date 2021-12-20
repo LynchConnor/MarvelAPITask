@@ -13,8 +13,9 @@ struct MarvelAPITaskApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            NavigationView {
+                HomeView(squadListVM: SquadListViewModel(SquadListDataService(controller: persistenceController)))
+            }
         }
     }
 }

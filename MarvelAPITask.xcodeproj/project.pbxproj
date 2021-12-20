@@ -7,22 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E022883327713A65002DC7A0 /* SquadListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E022883227713A65002DC7A0 /* SquadListView.swift */; };
 		E057A06C2770D7EA00827AD9 /* MarvelAPITaskApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E057A06B2770D7EA00827AD9 /* MarvelAPITaskApp.swift */; };
-		E057A06E2770D7EA00827AD9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E057A06D2770D7EA00827AD9 /* ContentView.swift */; };
 		E057A0702770D7EB00827AD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E057A06F2770D7EB00827AD9 /* Assets.xcassets */; };
 		E057A0732770D7EB00827AD9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E057A0722770D7EB00827AD9 /* Preview Assets.xcassets */; };
 		E057A0752770D7EB00827AD9 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E057A0742770D7EB00827AD9 /* Persistence.swift */; };
 		E057A0782770D7EB00827AD9 /* MarvelAPITask.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E057A0762770D7EB00827AD9 /* MarvelAPITask.xcdatamodeld */; };
+		E057A0812770D8BF00827AD9 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E057A0802770D8BF00827AD9 /* HomeView.swift */; };
+		E057A0852770E81F00827AD9 /* CharacterModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E057A0842770E81F00827AD9 /* CharacterModels.swift */; };
+		E057A0872770EC5D00827AD9 /* CharacterListDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E057A0862770EC5D00827AD9 /* CharacterListDataService.swift */; };
+		E057A0892770EC9D00827AD9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E057A0882770EC9D00827AD9 /* Constants.swift */; };
+		E057A08D2770F11200827AD9 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = E057A08C2770F11200827AD9 /* SDWebImageSwiftUI */; };
+		E057A08F2770F28300827AD9 /* CharacterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E057A08E2770F28300827AD9 /* CharacterListView.swift */; };
+		E057A0912770F2BE00827AD9 /* CharacterListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E057A0902770F2BE00827AD9 /* CharacterListCellView.swift */; };
+		E057A0932770F3A600827AD9 /* SquadListDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E057A0922770F3A600827AD9 /* SquadListDataService.swift */; };
+		E057A0952770FD3B00827AD9 /* CharacterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E057A0942770FD3B00827AD9 /* CharacterDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E022883227713A65002DC7A0 /* SquadListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquadListView.swift; sourceTree = "<group>"; };
 		E057A0682770D7EA00827AD9 /* MarvelAPITask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelAPITask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E057A06B2770D7EA00827AD9 /* MarvelAPITaskApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelAPITaskApp.swift; sourceTree = "<group>"; };
-		E057A06D2770D7EA00827AD9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E057A06F2770D7EB00827AD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E057A0722770D7EB00827AD9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E057A0742770D7EB00827AD9 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		E057A0772770D7EB00827AD9 /* MarvelAPITask.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MarvelAPITask.xcdatamodel; sourceTree = "<group>"; };
+		E057A0802770D8BF00827AD9 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		E057A0842770E81F00827AD9 /* CharacterModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModels.swift; sourceTree = "<group>"; };
+		E057A0862770EC5D00827AD9 /* CharacterListDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListDataService.swift; sourceTree = "<group>"; };
+		E057A0882770EC9D00827AD9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E057A08E2770F28300827AD9 /* CharacterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListView.swift; sourceTree = "<group>"; };
+		E057A0902770F2BE00827AD9 /* CharacterListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListCellView.swift; sourceTree = "<group>"; };
+		E057A0922770F3A600827AD9 /* SquadListDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquadListDataService.swift; sourceTree = "<group>"; };
+		E057A0942770FD3B00827AD9 /* CharacterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E057A08D2770F11200827AD9 /* SDWebImageSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,10 +74,12 @@
 			isa = PBXGroup;
 			children = (
 				E057A06B2770D7EA00827AD9 /* MarvelAPITaskApp.swift */,
-				E057A06D2770D7EA00827AD9 /* ContentView.swift */,
+				E057A0882770EC9D00827AD9 /* Constants.swift */,
+				E057A08A2770ECD000827AD9 /* DataService */,
+				E057A0822770E80C00827AD9 /* Model */,
+				E057A07F2770D85A00827AD9 /* CoreData */,
+				E057A07E2770D85600827AD9 /* Core */,
 				E057A06F2770D7EB00827AD9 /* Assets.xcassets */,
-				E057A0742770D7EB00827AD9 /* Persistence.swift */,
-				E057A0762770D7EB00827AD9 /* MarvelAPITask.xcdatamodeld */,
 				E057A0712770D7EB00827AD9 /* Preview Content */,
 			);
 			path = MarvelAPITask;
@@ -71,6 +91,52 @@
 				E057A0722770D7EB00827AD9 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E057A07E2770D85600827AD9 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				E057A0832770E81300827AD9 /* View */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		E057A07F2770D85A00827AD9 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				E057A0742770D7EB00827AD9 /* Persistence.swift */,
+				E057A0762770D7EB00827AD9 /* MarvelAPITask.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		E057A0822770E80C00827AD9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E057A0842770E81F00827AD9 /* CharacterModels.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E057A0832770E81300827AD9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E057A0802770D8BF00827AD9 /* HomeView.swift */,
+				E022883227713A65002DC7A0 /* SquadListView.swift */,
+				E057A08E2770F28300827AD9 /* CharacterListView.swift */,
+				E057A0902770F2BE00827AD9 /* CharacterListCellView.swift */,
+				E057A0942770FD3B00827AD9 /* CharacterDetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E057A08A2770ECD000827AD9 /* DataService */ = {
+			isa = PBXGroup;
+			children = (
+				E057A0862770EC5D00827AD9 /* CharacterListDataService.swift */,
+				E057A0922770F3A600827AD9 /* SquadListDataService.swift */,
+			);
+			path = DataService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -89,6 +155,9 @@
 			dependencies = (
 			);
 			name = MarvelAPITask;
+			packageProductDependencies = (
+				E057A08C2770F11200827AD9 /* SDWebImageSwiftUI */,
+			);
 			productName = MarvelAPITask;
 			productReference = E057A0682770D7EA00827AD9 /* MarvelAPITask.app */;
 			productType = "com.apple.product-type.application";
@@ -117,6 +186,9 @@
 				Base,
 			);
 			mainGroup = E057A05F2770D7EA00827AD9;
+			packageReferences = (
+				E057A08B2770F11200827AD9 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+			);
 			productRefGroup = E057A0692770D7EA00827AD9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -144,9 +216,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				E057A0752770D7EB00827AD9 /* Persistence.swift in Sources */,
-				E057A06E2770D7EA00827AD9 /* ContentView.swift in Sources */,
 				E057A0782770D7EB00827AD9 /* MarvelAPITask.xcdatamodeld in Sources */,
+				E057A0952770FD3B00827AD9 /* CharacterDetailView.swift in Sources */,
+				E057A08F2770F28300827AD9 /* CharacterListView.swift in Sources */,
+				E057A0932770F3A600827AD9 /* SquadListDataService.swift in Sources */,
+				E057A0812770D8BF00827AD9 /* HomeView.swift in Sources */,
 				E057A06C2770D7EA00827AD9 /* MarvelAPITaskApp.swift in Sources */,
+				E022883327713A65002DC7A0 /* SquadListView.swift in Sources */,
+				E057A0852770E81F00827AD9 /* CharacterModels.swift in Sources */,
+				E057A0912770F2BE00827AD9 /* CharacterListCellView.swift in Sources */,
+				E057A0872770EC5D00827AD9 /* CharacterListDataService.swift in Sources */,
+				E057A0892770EC9D00827AD9 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +429,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E057A08B2770F11200827AD9 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E057A08C2770F11200827AD9 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E057A08B2770F11200827AD9 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		E057A0762770D7EB00827AD9 /* MarvelAPITask.xcdatamodeld */ = {
