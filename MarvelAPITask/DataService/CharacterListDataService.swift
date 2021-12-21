@@ -9,8 +9,10 @@ import CryptoKit
 import Foundation
 
 class CharacterListDataService {
+    //MARK: Stores all characters from searches and general fetching.
     @Published var characters = [CharacterViewModel]()
     
+    //MARK: Returns a hash string based on the Marvel api guidelines
     private func MD5(data: String) -> String {
         
         let hash = Insecure.MD5.hash(data: data.data(using: .utf8) ?? Data())
@@ -18,6 +20,7 @@ class CharacterListDataService {
         return hash.map { String(format: "%02hhx", $0) }.joined()
     }
     
+    //MARK: Fetches all characters based the offset (the number of characters it initially skips) and saves them to the published variable characters
     func fetchCharacters(offset: Int) async {
         
         let ts = String(Date().timeIntervalSince1970)
@@ -41,6 +44,7 @@ class CharacterListDataService {
         }
     }
     
+    //MARK: Fetches characters based on whether the id matches the inputted id
     func fetchCharacter(id: String) async -> CharacterViewModel? {
         let timestamp = String(Date().timeIntervalSince1970)
         let data = "\(timestamp)\(privateKey)\(publicKey)"
@@ -64,6 +68,7 @@ class CharacterListDataService {
         }
     }
     
+    //Searches characters based on whether the name in the database starts with the query
     func searchCharacters(query: String) async {
         
         let ts = String(Date().timeIntervalSince1970)

@@ -10,6 +10,8 @@ import Foundation
 
 extension SquadListDataService: NSFetchedResultsControllerDelegate {
     
+    //MARK: Live updates the squadList array based on whether the controller changes (if an entity is added)
+    
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         guard let entities = controller.fetchedObjects as? [SquadEntity] else { return }
         self.squadList = entities.compactMap({ $0 })

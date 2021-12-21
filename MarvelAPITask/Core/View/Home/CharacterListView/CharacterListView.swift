@@ -35,11 +35,9 @@ class CharacterListViewModel: ObservableObject {
     
     func fetchCharacters(){
         Task {
-            print("DEBUG: Fetching")
             await dataService.fetchCharacters(offset: offset)
             dataService.$characters.sink { charactersList in
                 DispatchQueue.main.async {
-                    print("DEBUG: Characters set")
                     self.characters = charactersList
                 }
             }
@@ -54,7 +52,6 @@ class CharacterListViewModel: ObservableObject {
                 .sink { value in
                     if !(value.isEmpty){
                         Task {
-                            print("DEBUG: Searching")
                             await self.dataService.searchCharacters(query: self.searchField)
                             self.dataService.$characters.sink { charactersList in
                                 DispatchQueue.main.async {
