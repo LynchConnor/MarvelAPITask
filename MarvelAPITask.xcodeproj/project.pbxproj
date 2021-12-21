@@ -10,6 +10,7 @@
 		E022883327713A65002DC7A0 /* SquadListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E022883227713A65002DC7A0 /* SquadListView.swift */; };
 		E02288362772280F002DC7A0 /* SquadListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02288352772280F002DC7A0 /* SquadListViewModel.swift */; };
 		E0228843277230CD002DC7A0 /* MarvelAPITask_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0228842277230CD002DC7A0 /* MarvelAPITask_Tests.swift */; };
+		E022884A27724E43002DC7A0 /* CharacterListDataService_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = E022884927724E43002DC7A0 /* CharacterListDataService_Test.swift */; };
 		E057A06C2770D7EA00827AD9 /* MarvelAPITaskApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E057A06B2770D7EA00827AD9 /* MarvelAPITaskApp.swift */; };
 		E057A0702770D7EB00827AD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E057A06F2770D7EB00827AD9 /* Assets.xcassets */; };
 		E057A0732770D7EB00827AD9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E057A0722770D7EB00827AD9 /* Preview Assets.xcassets */; };
@@ -41,6 +42,7 @@
 		E02288352772280F002DC7A0 /* SquadListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquadListViewModel.swift; sourceTree = "<group>"; };
 		E0228840277230CD002DC7A0 /* MarvelAPITask_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarvelAPITask_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0228842277230CD002DC7A0 /* MarvelAPITask_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelAPITask_Tests.swift; sourceTree = "<group>"; };
+		E022884927724E43002DC7A0 /* CharacterListDataService_Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListDataService_Test.swift; sourceTree = "<group>"; };
 		E057A0682770D7EA00827AD9 /* MarvelAPITask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelAPITask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E057A06B2770D7EA00827AD9 /* MarvelAPITaskApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelAPITaskApp.swift; sourceTree = "<group>"; };
 		E057A06F2770D7EB00827AD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -124,8 +126,17 @@
 			isa = PBXGroup;
 			children = (
 				E0228842277230CD002DC7A0 /* MarvelAPITask_Tests.swift */,
+				E022884B27724F0A002DC7A0 /* MarvelListDataService */,
 			);
 			path = MarvelAPITask_Tests;
+			sourceTree = "<group>";
+		};
+		E022884B27724F0A002DC7A0 /* MarvelListDataService */ = {
+			isa = PBXGroup;
+			children = (
+				E022884927724E43002DC7A0 /* CharacterListDataService_Test.swift */,
+			);
+			path = MarvelListDataService;
 			sourceTree = "<group>";
 		};
 		E057A05F2770D7EA00827AD9 = {
@@ -319,6 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0228843277230CD002DC7A0 /* MarvelAPITask_Tests.swift in Sources */,
+				E022884A27724E43002DC7A0 /* CharacterListDataService_Test.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,8 @@
 import XCTest
 import Combine
 
+//Naming Structure: test_[struct or class]_[variable or function]_[expected result]
+
 class MarvelAPITask_Tests: XCTestCase {
     
     private var cancellables = Set<AnyCancellable>()
@@ -19,12 +21,13 @@ class MarvelAPITask_Tests: XCTestCase {
     
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
+        cancellables.removeAll()
     }
     
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         measure {
-            // Put the code you want to measure the time of here.
+            test_CharacterListViewModel_fetchCharacters_shouldReturnItems()
         }
     }
     
@@ -36,24 +39,18 @@ class MarvelAPITask_Tests: XCTestCase {
         // When
         let expectation = XCTestExpectation(description: "Should return items after 5 seconds")
         
+        var items: [CharacterViewModel] = []
+        
         vm.$characters
-            .dropFirst()
             .sink { characters in
-            expectation.fulfill()
+                items = characters
+                expectation.fulfill()
         }
         .store(in: &cancellables)
         
         //Then
         wait(for: [expectation], timeout: 5)
-        XCTAssertGreaterThan(vm.characters.count, 10)
-    }
-    
-    func test_SquadListViewModel_fetchSquad_shouldReturnEmpty(){
-        // Given
-        let vm = SquadListViewModel(PersistenceController.shared)
-        
-        // When
-        let expectation = XCTestExpectation(description: "Should return items after 5 seconds")
+        XCTAssertEqual(vm.characters, items)
     }
     
 }
