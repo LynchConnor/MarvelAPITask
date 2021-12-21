@@ -18,13 +18,13 @@ class CharacterListDataService {
         return hash.map { String(format: "%02hhx", $0) }.joined()
     }
     
-    func fetchCharacters() async {
+    func fetchCharacters(offset: Int) async {
         
         let ts = String(Date().timeIntervalSince1970)
         
         let hash = MD5(data: "\(ts)\(privateKey)\(publicKey)")
         
-        let urlString = "https://gateway.marvel.com:443/v1/public/characters?ts=\(ts)&apikey=\(publicKey)&hash=\(hash)"
+        let urlString = "https://gateway.marvel.com:443/v1/public/characters?offset=\(offset)&ts=\(ts)&apikey=\(publicKey)&hash=\(hash)"
         
         guard let url = URL(string: urlString) else { return }
         
@@ -34,7 +34,7 @@ class CharacterListDataService {
             let decodedData = try JSONDecoder().decode(CharacterDataWrapper.self, from: data)
             
             DispatchQueue.main.async {
-                self.characters = decodedData.data.results.compactMap(CharacterViewModel.init)
+                self.characters.append(contentsOf: decodedData.data.results.compactMap(CharacterViewModel.init))
             }
         }catch {
             print("DEBUG: \(error.localizedDescription)")

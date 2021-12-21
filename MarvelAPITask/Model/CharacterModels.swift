@@ -27,11 +27,9 @@ struct CharacterImage: Codable {
     let `extension`: String
 }
 
-struct CharacterViewModel: Identifiable, Codable {
-    let character: Character
+struct CharacterViewModel: Identifiable, Codable, Equatable {
     
     init(character: Character){
-        self.character = character
         self.id = String(character.id)
         self.name = character.name
         self.description = character.description

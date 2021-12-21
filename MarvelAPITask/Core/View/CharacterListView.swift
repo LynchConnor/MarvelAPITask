@@ -16,9 +16,9 @@ enum CharacterStatus {
 
 class CharacterListViewModel: ObservableObject {
     
-    @Published var status: CharacterStatus = .loading
-    
     @Published var characters = [CharacterViewModel]()
+    
+    @Published var offset: Int = 0
     
     @Published var searchField: String = ""
     
@@ -30,17 +30,16 @@ class CharacterListViewModel: ObservableObject {
     
     init(_ squadListVM: SquadListViewModel){
         self.squadListVM = squadListVM
-        fetchCharacters()
         searchCharacters()
     }
     
-    private func fetchCharacters(){
-        self.status = .loading
+    func fetchCharacters(){
         Task {
-            await dataService.fetchCharacters()
+            print("DEBUG: Fetching")
+            await dataService.fetchCharacters(offset: offset)
             dataService.$characters.sink { charactersList in
                 DispatchQueue.main.async {
-                    self.status = .complete
+                    print("DEBUG: Characters set")
                     self.characters = charactersList
                 }
             }
@@ -49,28 +48,27 @@ class CharacterListViewModel: ObservableObject {
     }
     
     private func searchCharacters(){
-        self.status = .loading
-        $searchField
-            .removeDuplicates()
-            .debounce(for: 0.5, scheduler: RunLoop.main)
-            .sink { value in
-            if !(value.isEmpty){
-                Task {
-                    await self.dataService.searchCharacters(query: self.searchField)
-                    self.dataService.$characters.sink { charactersList in
-                        DispatchQueue.main.async {
-                            self.status = .complete
-                            self.characters = charactersList
+            $searchField
+                .removeDuplicates()
+                .debounce(for: 0.5, scheduler: RunLoop.main)
+                .sink { value in
+                    if !(value.isEmpty){
+                        Task {
+                            print("DEBUG: Searching")
+                            await self.dataService.searchCharacters(query: self.searchField)
+                            self.dataService.$characters.sink { charactersList in
+                                DispatchQueue.main.async {
+                                    self.characters = charactersList
+                                }
+                            }
+                            .store(in: &self.cancellables)
                         }
+                    }else{
+                        self.dataService.characters = []
+                        self.fetchCharacters()
                     }
-                    .store(in: &self.cancellables)
                 }
-            }else{
-                self.status = .complete
-                self.fetchCharacters()
-            }
-        }
-        .store(in: &cancellables)
+                .store(in: &cancellables)
     }
 }
 
@@ -96,17 +94,20 @@ struct CharacterListView: View {
                 .cornerRadius(10)
                 .padding(.horizontal, 10)
             
-            switch viewModel.status {
-            case .loading:
-                ProgressView()
-            case .complete:
-                LazyVGrid(columns: columns, alignment: .center, spacing: 10) {
-                    ForEach(viewModel.characters) { character in
-                        NavigationLink {
-                            CharacterDetailView(viewModel: CharacterDetailView.ViewModel(state: .user(character: character), SquadListViewModel(viewModel.squadListVM.squadListDataService)))
-                        } label: {
-                            CharacterListCellView(CharacterListCellView.ViewModel(character, viewModel.squadListVM))
-                        }
+            LazyVGrid(columns: columns, alignment: .center, spacing: 10) {
+                ForEach(viewModel.characters) { character in
+                    NavigationLink {
+                        LazyView(CharacterDetailView(viewModel: CharacterDetailView.ViewModel(state: .user(character: character), SquadListViewModel(viewModel.squadListVM.squadListDataService))))
+                    } label: {
+                        CharacterListCellView(CharacterListCellView.ViewModel(character, viewModel.squadListVM))
+                            .onAppear(perform: {
+                                
+                                let maxCount = viewModel.characters.count - 5
+                                
+                                if !(viewModel.characters.isEmpty) && viewModel.characters[maxCount].id == character.id {
+                                    viewModel.offset += viewModel.characters.count
+                                    viewModel.fetchCharacters()
+                                }})
                     }
                 }
                 .padding(.horizontal, 10)
