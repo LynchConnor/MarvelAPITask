@@ -55,7 +55,7 @@ class SquadListViewModel: ObservableObject {
         }
     }
     
-    private func fetchSquad(){
+    func fetchSquad(){
         squadListDataService.$squadList.sink { squadEntities in
             self.squadEntities = squadEntities
         }
