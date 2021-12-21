@@ -46,13 +46,17 @@ class CharacterListDataService {
     
     //MARK: Fetches characters based on whether the id matches the inputted id
     func fetchCharacter(id: String) async -> CharacterViewModel? {
+        let idString = id.replacingOccurrences(of: " ", with: "")
+        guard !(id.isEmpty && idString.isEmpty) else { return nil }
+        
         let timestamp = String(Date().timeIntervalSince1970)
         let data = "\(timestamp)\(privateKey)\(publicKey)"
         let hash = MD5(data: data)
         
-        let url: String = "https://gateway.marvel.com:443/v1/public/characters/\(id)?&ts=\(timestamp)&apikey=\(publicKey)&hash=\(hash)"
+        guard let url: URL = URL(string: "https://gateway.marvel.com:443/v1/public/characters/\(id)?&ts=\(timestamp)&apikey=\(publicKey)&hash=\(hash)") else { return nil }
+        
         do {
-            let (data, _) = try await URLSession.shared.data(from: URL(string: url)!)
+            let (data, _) = try await URLSession.shared.data(from: url)
             
             let decodedResponse = try? JSONDecoder().decode(CharacterDataWrapper.self, from: data)
             

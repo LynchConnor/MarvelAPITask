@@ -48,7 +48,6 @@ class SquadListViewModel: ObservableObject {
     }
     
     func recruitCharacter(character: CharacterViewModel, completion: @escaping () -> ()){
-        
         if !(squadEntities.contains(where: { $0.characterId == character.id })) && (squadEntities.count < 5){
             squadListDataService.saveCharacter(character: character)
             completion()

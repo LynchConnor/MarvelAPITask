@@ -11,6 +11,10 @@
 		E02288362772280F002DC7A0 /* SquadListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02288352772280F002DC7A0 /* SquadListViewModel.swift */; };
 		E0228843277230CD002DC7A0 /* MarvelAPITask_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0228842277230CD002DC7A0 /* MarvelAPITask_Tests.swift */; };
 		E022884A27724E43002DC7A0 /* CharacterListDataService_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = E022884927724E43002DC7A0 /* CharacterListDataService_Test.swift */; };
+		E022884E2772599B002DC7A0 /* SquadListDataService_test.swift in Sources */ = {isa = PBXBuildFile; fileRef = E022884D2772599B002DC7A0 /* SquadListDataService_test.swift */; };
+		E022885027725EB1002DC7A0 /* CharacterListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E022884F27725EB1002DC7A0 /* CharacterListViewModel.swift */; };
+		E022885327725FBA002DC7A0 /* SquadListViewModel_test.swift in Sources */ = {isa = PBXBuildFile; fileRef = E022885227725FBA002DC7A0 /* SquadListViewModel_test.swift */; };
+		E022885627725FEB002DC7A0 /* CharacterListViewModel_test.swift in Sources */ = {isa = PBXBuildFile; fileRef = E022885527725FEB002DC7A0 /* CharacterListViewModel_test.swift */; };
 		E057A06C2770D7EA00827AD9 /* MarvelAPITaskApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E057A06B2770D7EA00827AD9 /* MarvelAPITaskApp.swift */; };
 		E057A0702770D7EB00827AD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E057A06F2770D7EB00827AD9 /* Assets.xcassets */; };
 		E057A0732770D7EB00827AD9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E057A0722770D7EB00827AD9 /* Preview Assets.xcassets */; };
@@ -43,6 +47,10 @@
 		E0228840277230CD002DC7A0 /* MarvelAPITask_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarvelAPITask_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0228842277230CD002DC7A0 /* MarvelAPITask_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelAPITask_Tests.swift; sourceTree = "<group>"; };
 		E022884927724E43002DC7A0 /* CharacterListDataService_Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListDataService_Test.swift; sourceTree = "<group>"; };
+		E022884D2772599B002DC7A0 /* SquadListDataService_test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquadListDataService_test.swift; sourceTree = "<group>"; };
+		E022884F27725EB1002DC7A0 /* CharacterListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewModel.swift; sourceTree = "<group>"; };
+		E022885227725FBA002DC7A0 /* SquadListViewModel_test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquadListViewModel_test.swift; sourceTree = "<group>"; };
+		E022885527725FEB002DC7A0 /* CharacterListViewModel_test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewModel_test.swift; sourceTree = "<group>"; };
 		E057A0682770D7EA00827AD9 /* MarvelAPITask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelAPITask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E057A06B2770D7EA00827AD9 /* MarvelAPITaskApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelAPITaskApp.swift; sourceTree = "<group>"; };
 		E057A06F2770D7EB00827AD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -82,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				E02288352772280F002DC7A0 /* SquadListViewModel.swift */,
+				E022884F27725EB1002DC7A0 /* CharacterListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -126,6 +135,9 @@
 			isa = PBXGroup;
 			children = (
 				E0228842277230CD002DC7A0 /* MarvelAPITask_Tests.swift */,
+				E022885427725FC5002DC7A0 /* CharacterListViewModel */,
+				E022885127725FA9002DC7A0 /* SquadListViewModel */,
+				E022884C27725975002DC7A0 /* SquadListDataService */,
 				E022884B27724F0A002DC7A0 /* MarvelListDataService */,
 			);
 			path = MarvelAPITask_Tests;
@@ -137,6 +149,30 @@
 				E022884927724E43002DC7A0 /* CharacterListDataService_Test.swift */,
 			);
 			path = MarvelListDataService;
+			sourceTree = "<group>";
+		};
+		E022884C27725975002DC7A0 /* SquadListDataService */ = {
+			isa = PBXGroup;
+			children = (
+				E022884D2772599B002DC7A0 /* SquadListDataService_test.swift */,
+			);
+			path = SquadListDataService;
+			sourceTree = "<group>";
+		};
+		E022885127725FA9002DC7A0 /* SquadListViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E022885227725FBA002DC7A0 /* SquadListViewModel_test.swift */,
+			);
+			path = SquadListViewModel;
+			sourceTree = "<group>";
+		};
+		E022885427725FC5002DC7A0 /* CharacterListViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E022885527725FEB002DC7A0 /* CharacterListViewModel_test.swift */,
+			);
+			path = CharacterListViewModel;
 			sourceTree = "<group>";
 		};
 		E057A05F2770D7EA00827AD9 = {
@@ -330,7 +366,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0228843277230CD002DC7A0 /* MarvelAPITask_Tests.swift in Sources */,
+				E022885327725FBA002DC7A0 /* SquadListViewModel_test.swift in Sources */,
 				E022884A27724E43002DC7A0 /* CharacterListDataService_Test.swift in Sources */,
+				E022885627725FEB002DC7A0 /* CharacterListViewModel_test.swift in Sources */,
+				E022884E2772599B002DC7A0 /* SquadListDataService_test.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +387,7 @@
 				E057A06C2770D7EA00827AD9 /* MarvelAPITaskApp.swift in Sources */,
 				E022883327713A65002DC7A0 /* SquadListView.swift in Sources */,
 				E057A0852770E81F00827AD9 /* CharacterModels.swift in Sources */,
+				E022885027725EB1002DC7A0 /* CharacterListViewModel.swift in Sources */,
 				E057A0912770F2BE00827AD9 /* CharacterListCellView.swift in Sources */,
 				E057A0872770EC5D00827AD9 /* CharacterListDataService.swift in Sources */,
 				E057A0892770EC9D00827AD9 /* Constants.swift in Sources */,

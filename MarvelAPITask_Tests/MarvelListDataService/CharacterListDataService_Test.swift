@@ -29,33 +29,23 @@ class CharacterListDataService_Test: XCTestCase {
         }
     }
     
-    func test_CharacterListDataService_fetchCharacters_shouldReturnItems() async{
-        // Given
-        let vm = CharacterListDataService()
-        
-        // When
-        let expectation = XCTestExpectation(description: "Should return items after 5 seconds")
-        
-        var items: [CharacterViewModel] = []
-        
-        vm.$characters.sink { characters in
-            items = characters
-            expectation.fulfill()
-            
-        }
-        .store(in: &cancellables)
-        
-        //Then
-        wait(for: [expectation], timeout: 5)
-        XCTAssertEqual(vm.characters, items)
-    }
-    
-    func test_CharacterListDataService_fetchCharacter_shouldNotReturnItem() async{
+    func test_CharacterListDataService_fetchCharacter_shouldNotReturnItem_Empty() async{
         // Given
         let vm = CharacterListDataService()
         
         // When
         let character = await vm.fetchCharacter(id: "")
+        
+        //Then
+        XCTAssertNil(character)
+    }
+    
+    func test_CharacterListDataService_fetchCharacter_shouldNotReturnItem_Space() async{
+        // Given
+        let vm = CharacterListDataService()
+        
+        // When
+        let character = await vm.fetchCharacter(id: " ")
         
         //Then
         XCTAssertNil(character)
@@ -95,7 +85,7 @@ class CharacterListDataService_Test: XCTestCase {
         wait(for: [expectation], timeout: 5)
         XCTAssertEqual(vm.characters, [])
     }
-    
+
     func test_CharacterListDataService_searchCharacter_notNil() async {
         //MARK: Given
         let vm = CharacterListDataService()
