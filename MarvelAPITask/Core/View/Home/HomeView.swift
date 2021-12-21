@@ -6,51 +6,7 @@
 //
 
 import SwiftUI
-import Combine
 import SDWebImageSwiftUI
-
-class SquadListViewModel: ObservableObject {
-    @Published var squadEntities = [SquadEntity]()
-    
-    let squadMaxCount: Int = 5
-    
-    let squadListDataService: SquadListDataService
-    
-    private var cancellables = Set<AnyCancellable>()
-    
-    init(_ squadListDS: SquadListDataService){
-        self.squadListDataService = squadListDS
-        fetchSquad()
-    }
-    
-    var squadCount: Int {
-        return squadEntities.count
-    }
-    
-    var squadRemaining: Int {
-        return squadMaxCount - squadEntities.count
-    }
-    
-    func fireCharacter(id: String){
-        guard let entity = squadEntities.first(where: { $0.characterId == id }) else { return }
-        squadListDataService.fireCharacter(entity: entity)
-    }
-    
-    func recruitCharacter(character: CharacterViewModel, completion: @escaping () -> ()){
-        
-        if !(squadEntities.contains(where: { $0.characterId == character.id })) && (squadEntities.count < 5){
-            squadListDataService.saveCharacter(character: character)
-            completion()
-        }
-    }
-    
-    func fetchSquad(){
-        squadListDataService.$squadList.sink { squadEntities in
-            self.squadEntities = squadEntities
-        }
-        .store(in: &cancellables)
-    }
-}
 
 struct HomeView: View {
     
@@ -64,7 +20,7 @@ struct HomeView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 5) {
                 
-                if squadListVM.squadCount < squadListVM.squadMaxCount {
+                if squadListVM.squadHeaderIsVisible {
                     
                     VStack(alignment: .leading, spacing: 5) {
                         
@@ -98,7 +54,7 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            HomeView(squadListVM: SquadListViewModel(SquadListDataService(controller: PersistenceController.shared)))
+            HomeView(squadListVM: SquadListViewModel(PersistenceController.shared))
                 .environment(\.managedObjectContext, PersistenceController.shared.viewContext)
         }
     }

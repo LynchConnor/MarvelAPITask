@@ -70,6 +70,16 @@ class CharacterListViewModel: ObservableObject {
                 }
                 .store(in: &cancellables)
     }
+    
+    func checkLastCharacter(id: CharacterViewModel.ID){
+        
+        let maxCount = characters.count - 5
+        
+        if !(characters.isEmpty) && characters[maxCount].id == id {
+            self.offset += characters.count
+            fetchCharacters()
+        }
+    }
 }
 
 struct CharacterListView: View {
@@ -97,17 +107,12 @@ struct CharacterListView: View {
             LazyVGrid(columns: columns, alignment: .center, spacing: 10) {
                 ForEach(viewModel.characters) { character in
                     NavigationLink {
-                        LazyView(CharacterDetailView(viewModel: CharacterDetailView.ViewModel(state: .user(character: character), SquadListViewModel(viewModel.squadListVM.squadListDataService))))
+                        LazyView(CharacterDetailView(viewModel: CharacterDetailView.ViewModel(state: .user(character: character), viewModel.squadListVM)))
                     } label: {
                         CharacterListCellView(CharacterListCellView.ViewModel(character, viewModel.squadListVM))
                             .onAppear(perform: {
-                                
-                                let maxCount = viewModel.characters.count - 5
-                                
-                                if !(viewModel.characters.isEmpty) && viewModel.characters[maxCount].id == character.id {
-                                    viewModel.offset += viewModel.characters.count
-                                    viewModel.fetchCharacters()
-                                }})
+                                viewModel.checkLastCharacter(id: character.id)
+                            })
                     }
                 }
                 .padding(.horizontal, 10)
@@ -119,6 +124,6 @@ struct CharacterListView: View {
 
 struct CharacterListView_Previews: PreviewProvider {
     static var previews: some View {
-        CharacterListView(viewModel: CharacterListViewModel(SquadListViewModel(SquadListDataService(controller: PersistenceController.shared))))
+        CharacterListView(viewModel: CharacterListViewModel(SquadListViewModel(PersistenceController.shared)))
     }
 }

@@ -135,6 +135,6 @@ struct CharacterListCellView: View {
 
 struct CharacterListCellView_Previews: PreviewProvider {
     static var previews: some View {
-        CharacterListCellView(CharacterListCellView.ViewModel(characterExample, SquadListViewModel(SquadListDataService(controller: PersistenceController.shared))))
+        CharacterListCellView(CharacterListCellView.ViewModel(characterExample, SquadListViewModel(PersistenceController.shared)))
     }
 }

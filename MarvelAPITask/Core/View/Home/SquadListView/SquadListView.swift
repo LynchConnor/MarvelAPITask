@@ -12,10 +12,6 @@ struct SquadListView: View {
     
     @ObservedObject var squadListVM: SquadListViewModel
     
-    var remaining: Int {
-        return 5-squadListVM.squadEntities.count
-    }
-    
     init(squadListViewModel: SquadListViewModel){
         _squadListVM = ObservedObject(wrappedValue: squadListViewModel)
     }
@@ -67,8 +63,8 @@ struct SquadListView: View {
                 }
             }
             
-            if remaining > 0 {
-                ForEach(1...remaining, id: \.self) { item in
+            if squadListVM.remainingIsGreaterThanZero {
+                ForEach(1...squadListVM.remaining, id: \.self) { item in
                     VStack {
                         Circle()
                             .foregroundColor(.gray.opacity(0.5))
@@ -87,6 +83,6 @@ struct SquadListView: View {
 
 struct SquadListView_Previews: PreviewProvider {
     static var previews: some View {
-        SquadListView(squadListViewModel: SquadListViewModel(SquadListDataService(controller: PersistenceController.shared)))
+        SquadListView(squadListViewModel: SquadListViewModel(PersistenceController.shared))
     }
 }

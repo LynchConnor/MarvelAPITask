@@ -14,7 +14,7 @@ struct MarvelAPITaskApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                HomeView(squadListVM: SquadListViewModel(SquadListDataService(controller: persistenceController)))
+                HomeView(squadListVM: SquadListViewModel(persistenceController))
             }
         }
     }

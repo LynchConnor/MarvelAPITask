@@ -57,12 +57,19 @@ extension CharacterDetailView {
             return isRecruited ? .white : .white
         }
         
+        var textString: String {
+            return isRecruited ? "FIRE" : "RECRUIT"
+        }
+        
         var imageString: String {
             return isRecruited ? "minus.circle.fill" : "plus.circle.fill"
         }
         
-        func action(){
+        func action(completion: @escaping () -> ()){
             isRecruited ? fireCharacter() : recruitCharacter()
+            if !(isRecruited) {
+                completion()
+            }
         }
         
         private func recruitCharacter(){
@@ -117,15 +124,14 @@ struct CharacterDetailView: View {
                             .multilineTextAlignment(.leading)
                         
                         Button {
-                            viewModel.action()
-                            if !(viewModel.isRecruited){
+                            viewModel.action() {
                                 dismiss()
                             }
                         } label: {
                             
                             HStack {
                                 
-                                Text(viewModel.isRecruited ? "Fire".uppercased() : "Recruit".uppercased() )
+                                Text(viewModel.textString)
                                     .font(.title2)
                                     .bold()
                                 
@@ -156,6 +162,6 @@ struct CharacterDetailView: View {
 
 struct CharacterDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        CharacterDetailView(viewModel: CharacterDetailView.ViewModel(state: .unknown, SquadListViewModel(SquadListDataService(controller: PersistenceController.shared))))
+        CharacterDetailView(viewModel: CharacterDetailView.ViewModel(state: .unknown, SquadListViewModel(PersistenceController.shared)))
     }
 }

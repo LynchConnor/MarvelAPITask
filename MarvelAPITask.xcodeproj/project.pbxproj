@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E022883327713A65002DC7A0 /* SquadListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E022883227713A65002DC7A0 /* SquadListView.swift */; };
+		E02288362772280F002DC7A0 /* SquadListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02288352772280F002DC7A0 /* SquadListViewModel.swift */; };
 		E057A06C2770D7EA00827AD9 /* MarvelAPITaskApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E057A06B2770D7EA00827AD9 /* MarvelAPITaskApp.swift */; };
 		E057A0702770D7EB00827AD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E057A06F2770D7EB00827AD9 /* Assets.xcassets */; };
 		E057A0732770D7EB00827AD9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E057A0722770D7EB00827AD9 /* Preview Assets.xcassets */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		E022883227713A65002DC7A0 /* SquadListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquadListView.swift; sourceTree = "<group>"; };
+		E02288352772280F002DC7A0 /* SquadListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquadListViewModel.swift; sourceTree = "<group>"; };
 		E057A0682770D7EA00827AD9 /* MarvelAPITask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelAPITask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E057A06B2770D7EA00827AD9 /* MarvelAPITaskApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelAPITaskApp.swift; sourceTree = "<group>"; };
 		E057A06F2770D7EB00827AD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -54,6 +56,50 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E022883427722806002DC7A0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E02288352772280F002DC7A0 /* SquadListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E022883727722BE4002DC7A0 /* CharacterListView */ = {
+			isa = PBXGroup;
+			children = (
+				E057A08E2770F28300827AD9 /* CharacterListView.swift */,
+				E057A0902770F2BE00827AD9 /* CharacterListCellView.swift */,
+			);
+			path = CharacterListView;
+			sourceTree = "<group>";
+		};
+		E022883827722BEA002DC7A0 /* CharacterDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				E057A0942770FD3B00827AD9 /* CharacterDetailView.swift */,
+			);
+			path = CharacterDetailView;
+			sourceTree = "<group>";
+		};
+		E022883927722BF1002DC7A0 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E057A0802770D8BF00827AD9 /* HomeView.swift */,
+				E022883B27722C12002DC7A0 /* SquadListView */,
+				E022883827722BEA002DC7A0 /* CharacterDetailView */,
+				E022883727722BE4002DC7A0 /* CharacterListView */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		E022883B27722C12002DC7A0 /* SquadListView */ = {
+			isa = PBXGroup;
+			children = (
+				E022883227713A65002DC7A0 /* SquadListView.swift */,
+			);
+			path = SquadListView;
+			sourceTree = "<group>";
+		};
 		E057A05F2770D7EA00827AD9 = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +142,7 @@
 		E057A07E2770D85600827AD9 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				E022883427722806002DC7A0 /* ViewModel */,
 				E057A0832770E81300827AD9 /* View */,
 			);
 			path = Core;
@@ -121,11 +168,7 @@
 		E057A0832770E81300827AD9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E057A0802770D8BF00827AD9 /* HomeView.swift */,
-				E022883227713A65002DC7A0 /* SquadListView.swift */,
-				E057A08E2770F28300827AD9 /* CharacterListView.swift */,
-				E057A0902770F2BE00827AD9 /* CharacterListCellView.swift */,
-				E057A0942770FD3B00827AD9 /* CharacterDetailView.swift */,
+				E022883927722BF1002DC7A0 /* Home */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -218,6 +261,7 @@
 				E057A0752770D7EB00827AD9 /* Persistence.swift in Sources */,
 				E057A0782770D7EB00827AD9 /* MarvelAPITask.xcdatamodeld in Sources */,
 				E057A0952770FD3B00827AD9 /* CharacterDetailView.swift in Sources */,
+				E02288362772280F002DC7A0 /* SquadListViewModel.swift in Sources */,
 				E057A08F2770F28300827AD9 /* CharacterListView.swift in Sources */,
 				E057A0932770F3A600827AD9 /* SquadListDataService.swift in Sources */,
 				E057A0812770D8BF00827AD9 /* HomeView.swift in Sources */,
