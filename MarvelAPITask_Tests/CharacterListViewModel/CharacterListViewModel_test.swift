@@ -28,27 +28,5 @@ class CharacterListViewModel_test: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-    
-    //MARK: Test to see if the character list view model returns list of characters on app init
-    func test_CharacterListViewModel_fetchCharacters_shouldReturnItems(){
-        // Given
-        let vm = CharacterListViewModel(SquadListViewModel(PersistenceController.shared))
-        
-        // When
-        let expectation = XCTestExpectation(description: "Should return items after 5 seconds")
-        
-        var items: [CharacterViewModel] = []
-        
-        vm.$characters
-            .sink { characters in
-                items = characters
-                expectation.fulfill()
-        }
-        .store(in: &cancellables)
-        
-        //Then
-        wait(for: [expectation], timeout: 5)
-        XCTAssertEqual(vm.characters, items)
-    }
 
 }
