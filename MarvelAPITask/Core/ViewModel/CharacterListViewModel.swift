@@ -35,7 +35,8 @@ class CharacterListViewModel: ObservableObject {
     func fetchCharacters(){
         Task {
             await dataService.fetchCharacters(offset: offset)
-            dataService.$characters.sink { charactersList in
+            dataService.$characters
+                .sink { charactersList in
                 DispatchQueue.main.async {
                     self.characters = charactersList
                 }

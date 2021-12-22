@@ -28,5 +28,63 @@ class CharacterListViewModel_test: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+    
+    func test_CharacterListViewModel_fetchCharacters_fetchCharactersNotEmpty(){
+        let characterListVM = CharacterListViewModel(SquadListViewModel(PersistenceController(.inMemory)))
+        //When
+        
+        let exception = XCTestExpectation(description: "Should take less than 5 seconds.")
+        
+        characterListVM.$characters
+            .dropFirst()
+            .sink { characterList in
+            exception.fulfill()
+        }
+        .store(in: &cancellables)
+        
+        //Then
+        wait(for: [exception], timeout: 5)
+        XCTAssertGreaterThan(characterListVM.characters.count, 0)
+    }
+    
+    func test_CharacterListViewModel_fetchCharacters_searchNotEmpty(){
+        let characterListVM = CharacterListViewModel(SquadListViewModel(PersistenceController(.inMemory)))
+        //When
+        
+        let exception = XCTestExpectation(description: "Should take less than 5 seconds.")
+        
+        characterListVM.$characters
+            .dropFirst()
+            .sink { characterList in
+            exception.fulfill()
+        }
+        .store(in: &cancellables)
+        
+        characterListVM.searchField = "Spider-Man"
+        
+        //Then
+        wait(for: [exception], timeout: 5)
+        XCTAssertGreaterThan(characterListVM.characters.count, 0)
+    }
+    
+    func test_CharacterListViewModel_fetchCharacters_searchEmpty(){
+        let characterListVM = CharacterListViewModel(SquadListViewModel(PersistenceController(.inMemory)))
+        //When
+        
+        let exception = XCTestExpectation(description: "Should take less than 5 seconds.")
+        
+        characterListVM.$characters
+            .dropFirst()
+            .sink { characterList in
+            exception.fulfill()
+        }
+        .store(in: &cancellables)
+        
+        characterListVM.searchField = " "
+        
+        //Then
+        wait(for: [exception], timeout: 5)
+        XCTAssertEqual(characterListVM.characters.count, 0)
+    }
 
 }
